@@ -53,11 +53,9 @@ const DiaryList = ({ diaryList }) => {
     };
 
     const copyList = JSON.parse(JSON.stringify(diaryList));
-
     const filteredList =
       filter === "all" ? copyList : copyList.filter((it) => filterCallBack(it));
-
-    const sortedList = copyList.sort(compare);
+    const sortedList = filteredList.sort(compare);
     return sortedList;
   };
 
@@ -81,7 +79,7 @@ const DiaryList = ({ diaryList }) => {
           <MyButton
             type={"positive"}
             text={"새 일기쓰기"}
-            onclick={() => navigate("/new")}
+            onClick={() => navigate("/new")}
           />
         </div>
       </div>
